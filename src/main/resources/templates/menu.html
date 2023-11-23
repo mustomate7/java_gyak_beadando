@@ -1,0 +1,31 @@
+<div xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <div class="text-center py-3 bg-dark mb-3">
+        <span sec:authorize="isAnonymous()">
+            <a class="btn btn-primary" th:href="@{/}">Főoldal</a>
+        </span>
+        <span sec:authorize="isAnonymous()">
+            <a class="btn btn-primary" th:href="@{/login}">Belépés</a>
+        </span>
+        <span sec:authorize="isAnonymous()">
+            <a class="btn btn-primary" th:href="@{/register}">Regisztráció</a>
+        </span>
+        <span sec:authorize="isAnonymous()">
+            <a class="btn btn-primary" th:href="@{/contact_anon}">Kapcsolat</a>
+        </span>
+        <span sec:authorize="isAuthenticated()">
+            <a class="btn btn-primary" th:href="@{/home}">Home</a>
+            <a class="btn btn-primary" th:href="@{/firstfive}">Az első 5 év</a>
+            <a class="btn btn-primary" th:href="@{/contact_user}">Kapcsolat</a>
+            <a class="btn btn-primary" th:href="@{/logout}">Kilépés</a>
+        </span>
+        <span sec:authorize="hasRole('ROLE_ADMIN')">
+            <a class="btn btn-primary" th:href="@{/admin/home}">Admin</a>
+        </span>
+        <div class="text-right">
+        <span class="text-white" sec:authorize="isAuthenticated()">
+            Bejelentkezve: <span sec:authentication="principal.username">User</span>
+        </span>
+        </div>
+    </div>
+</div>
