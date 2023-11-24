@@ -533,3 +533,8 @@ INSERT INTO `kapcsolo` (`tudosid`, `eloadasid`) VALUES (1,1),
 	(165,174),
 	(166,175);
 
+CREATE TABLE `contact` (
+  `id` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `content` varchar(255) NOT NULL,
+  `user` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

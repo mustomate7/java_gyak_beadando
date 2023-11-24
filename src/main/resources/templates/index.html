@@ -11,12 +11,15 @@
 
   <section class="container text-center my-4">
     <h2 class="py-4">Üdvözöljük a Mindentudás Egyeteme weboldalán!</h2>
-    <div class="row" sec:authorize="isAnonymous()">
+    <img src="https://media.port.hu/images/000/665/692.jpg" alt="kep" style="height: 300px; width: auto">
+    <div class="row mt-4" sec:authorize="isAnonymous()">
       <h4 class="mb-3" sec:authorize="isAnonymous()">További tartalmakat szeretne látni?</h4>
       <div class="col-6">
+        <h5>Van már fiókja? Lépjen be!</h5>
         <a class="btn btn-primary" th:href="@{/login}">Belépés</a>
       </div>
       <div class="col-6">
+        <h5>Még nem tag? Regisztráljon!</h5>
         <a class="btn btn-secondary" th:href="@{/register}">Regisztráció</a>
       </div>
     </div>

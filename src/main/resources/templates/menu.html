@@ -10,13 +10,12 @@
         <span sec:authorize="isAnonymous()">
             <a class="btn btn-primary" th:href="@{/register}">Regisztráció</a>
         </span>
-        <span sec:authorize="isAnonymous()">
+        <span>
             <a class="btn btn-primary" th:href="@{/contact_anon}">Kapcsolat</a>
         </span>
         <span sec:authorize="isAuthenticated()">
             <a class="btn btn-primary" th:href="@{/home}">Home</a>
             <a class="btn btn-primary" th:href="@{/firstfive}">Az első 5 év</a>
-            <a class="btn btn-primary" th:href="@{/contact_user}">Kapcsolat</a>
             <a class="btn btn-primary" th:href="@{/logout}">Kilépés</a>
         </span>
         <span sec:authorize="hasRole('ROLE_ADMIN')">

@@ -11,6 +11,12 @@
 
     <h3>Írjon üzenetet!</h3>
 
+    <form action="#" th:action="@{/contact_anon}" th:object="${contact}" method="post">
+        <p>Message: <input type="text" th:field="*{content}" /></p>
+        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+
 
 </body>
 </html>
