@@ -100,8 +100,8 @@ public class HomeController {
     String B(){
         String str="";
         for(Contact contact: contactRepo.findAll()){
-            str+=contact.getContent()+"; "+contact.getUser();
-            str+="<br>";
+            str+="Üzenet: "+contact.getContent()+" Felhasználó: "+contact.getUser();
+            str+="<br><br>";
         }
         return str;
     }

@@ -12,9 +12,15 @@
     <h3 class="text-center">Írjon üzenetet!</h3>
 
     <form action="#" th:action="@{/contact_anon}" th:object="${con}" method="post" class="container">
-        <p>Message: <input type="text" th:field="*{content}" /></p>
-        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <div class="col-3 mx-auto">
+            <p>Üzenet:</p>
+            <input type="text" th:field="*{content}" class="form-control" />
+            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+            <div class="text-center">
+                <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
+                <input type="reset" value="Reset" class="btn btn-warning mt-3"/>
+            </div>
+        </div>
     </form>
 </body>
 </html>
