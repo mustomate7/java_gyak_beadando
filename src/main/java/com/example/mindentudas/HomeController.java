@@ -73,7 +73,7 @@ public class HomeController {
 
     @GetMapping("/contact_anon")
     public String contact_anon(Model model) {
-        model.addAttribute("contact", new Contact());
+        model.addAttribute("con", new Contact());
         return "contact_anon";
     }
 
@@ -81,13 +81,28 @@ public class HomeController {
     private ContactRepo contactRepo;
     @PostMapping("/contact_anon")
     public String urlapSubmit(@Valid @ModelAttribute Contact contact, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors())
+        if (bindingResult.hasErrors()) {
             return "contact_anon";
-        model.addAttribute("contact", contact);
+        }
         contact.setContent(contact.getContent());
         contact.setUser("Vendég");
         contactRepo.save(contact);
         return "formjo";
     }
 
+    @GetMapping("/messages")
+    public String messages(Model model) {
+        String str = B();
+        model.addAttribute("str", str);
+        return "messages";
+    }
+
+    String B(){
+        String str="";
+        for(Contact contact: contactRepo.findAll()){
+            str+=contact.getContent()+"; "+contact.getUser();
+            str+="<br>";
+        }
+        return str;
+    }
 }

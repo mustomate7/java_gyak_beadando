@@ -1,9 +1,6 @@
 package com.example.mindentudas;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -11,7 +8,9 @@ import jakarta.validation.constraints.Size;
 @Table(name="contact")
 public class Contact {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @NotNull
     @Size(min=2, max=255)
     @Column(name = "content")
@@ -19,6 +18,7 @@ public class Contact {
 
     @Column(name = "user")
     private String user;
+
     public long getId() {
         return id;
     }
